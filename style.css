@@ -19,7 +19,7 @@ body{
 .quote-wrapper{
     width: 650px;
     height: 570px;
-    margin: 0 10px;
+    margin: 0 30px;
     padding: 75px;
 }
 
@@ -35,8 +35,8 @@ body{
 }
 
 .quote-wrapper .quote-body{
-    width: 100%;
-    height: 220px;
+    max-width: 100%;
+    max-height: 340px;
     background: #fff;
     border-radius: 5px;
     padding: 50px 35px;
@@ -46,18 +46,15 @@ body{
     text-align: center;
     font-size: 18px;
     color: #333;
-    height: 60px;
-    overflow: auto;
+    height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .quote-wrapper .quote-body .icon-quote .icon{
     margin-right: 5px;
 }
 
-.quote-wrapper .quote-body .author{
-    text-align: right;
-    margin-top: 15px;
-}
 
 .quote-wrapper .quote-body .quote-btn{
     display: flex;
@@ -90,6 +87,7 @@ body{
     cursor: pointer;
     font-size: 16px;
     border-radius: 7px;
+    justify-content: right;
 }
 
 .quote-wrapper .quote-body .btn button:active{
@@ -108,4 +106,68 @@ body{
 .quote-wrapper .footer p a{
     color: #00acee;
     text-decoration: none;
+}
+
+.quote-wrapper .number{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.quote-wrapper .number button{
+     align-items: center;
+     justify-content: center;
+     padding: 10px 20px;
+     color: #fff;
+     border-radius: 8px;
+     cursor: pointer;
+     outline: none;
+     overflow: hidden;
+     border: none;
+}
+
+.quote-wrapper .number button:nth-child(1){
+    background-color: #457b9d;
+}
+
+.quote-wrapper .number button:nth-child(1):hover{
+    background-color: #3d5a80;
+}
+
+.quote-wrapper .number button:nth-child(2){
+    background-color: #e63946;
+}
+
+.quote-wrapper .number button:nth-child(2):hover{
+    background-color: #d62828;
+}
+
+.quote-wrapper .number button:nth-child(3){
+    background-color: #06d6a0;
+}
+
+.quote-wrapper .number button:nth-child(3):hover{
+    background-color: #2a9d8f;
+}
+
+.quote-wrapper .number button:nth-child(4){
+    background-color: #ff7d00;
+}
+
+.quote-wrapper .number button:nth-child(4):hover{
+    background-color: #e85d04;
+}
+
+.quote-wrapper .number button:nth-child(5){
+    background-color: #073b4c;
+}
+
+.quote-wrapper .number button:nth-child(5):hover{
+    background-color: #023047;
+}
+
+.quote-wrapper .quote-body .quote-body-secondary .icon-quote span.quotes:nth-child(1){
+    border-bottom: 1px solid var(#333);
+    display: inline-block;
+    flex-wrap: nowrap;
 }
