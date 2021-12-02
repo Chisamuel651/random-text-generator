@@ -14,12 +14,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .quote-wrapper{
     width: 650px;
     height: 570px;
-    margin: 0 30px;
+    /* margin: 0 30px; */
+    margin-bottom: 175px;
     padding: 75px;
 }
 
@@ -49,7 +51,9 @@ body{
     height: 150px;
     overflow: scroll;
     overflow-x: hidden;
+    overflow-wrap: normal;
 }
+
 
 .quote-wrapper .quote-body .icon-quote .icon{
     margin-right: 5px;
@@ -78,7 +82,7 @@ body{
     color: #00acee;
 }
 
-.quote-wrapper .quote-body .btn button{
+/* .quote-wrapper .quote-body .btn button{
     border: none;
     outline: none;
     padding: 10px 15px;
@@ -88,7 +92,7 @@ body{
     font-size: 16px;
     border-radius: 7px;
     justify-content: right;
-}
+} */
 
 .quote-wrapper .quote-body .btn button:active{
     background: #00acee;
@@ -108,23 +112,17 @@ body{
     text-decoration: none;
 }
 
-.quote-wrapper .number{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-}
-
-.quote-wrapper .number button{
-     align-items: center;
-     justify-content: center;
-     padding: 10px 20px;
-     color: #fff;
-     border-radius: 8px;
-     cursor: pointer;
+/* .quote-wrapper .number .quote_gen{
+     /* align-items: center;
+     justify-content: center; */
+     /* padding: 10px 20px; */
+     /* color: #fff; */
+     /* border-radius: 8px; */
+     /* cursor: pointer;
      outline: none;
      overflow: hidden;
-     border: none;
-}
+     border: none; */
+/* } */
 
 .quote-wrapper .number button:nth-child(1){
     background-color: #457b9d;
@@ -132,6 +130,7 @@ body{
 
 .quote-wrapper .number button:nth-child(1):hover{
     background-color: #3d5a80;
+    transform: scale(1.1);
 }
 
 .quote-wrapper .number button:nth-child(2){
@@ -140,6 +139,7 @@ body{
 
 .quote-wrapper .number button:nth-child(2):hover{
     background-color: #d62828;
+    transform: scale(1.1);
 }
 
 .quote-wrapper .number button:nth-child(3){
@@ -148,6 +148,7 @@ body{
 
 .quote-wrapper .number button:nth-child(3):hover{
     background-color: #2a9d8f;
+    transform: scale(1.1);
 }
 
 .quote-wrapper .number button:nth-child(4){
@@ -156,6 +157,7 @@ body{
 
 .quote-wrapper .number button:nth-child(4):hover{
     background-color: #e85d04;
+    transform: scale(1.1);
 }
 
 .quote-wrapper .number button:nth-child(5){
@@ -164,10 +166,138 @@ body{
 
 .quote-wrapper .number button:nth-child(5):hover{
     background-color: #023047;
+    transform: scale(1.1);
 }
 
-.quote-wrapper .quote-body .quote-body-secondary .icon-quote span.quotes:nth-child(1){
-    border-bottom: 1px solid var(#333);
-    display: inline-block;
-    flex-wrap: nowrap;
+/* mobile */
+
+@media(max-width: 567px){
+    .quote-wrapper .quote-body .number{
+        padding: 12px 5px;
+    }
+    .quote_number{
+      margin-right: 500px;
+    }
+    select.number{
+        margin-top: -5px;
+    }
+}
+
+@media(max-width: 500px){
+    .quote-wrapper .number button{
+        margin: 6px 5px;
+        justify-content: space-evenly;
+    }
+    .quote-wrapper .quote-body{
+        width: 100%;
+    }
+    .quote-wrapper .quote-body .btn button{
+        padding: 7px 9px;
+    }
+    .quote-wrapper .quote-heading h2{
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 367px){
+    .quote-wrapper .quote-body{
+        width: 90%;
+        margin-left: 20px;
+    }
+}
+
+.quote_number{
+    position: relative;
+    width: 200px;
+}
+
+.quote_number .number_generated{
+    margin-left: 300px;
+    border-radius: 7px;
+    margin-top: -60px;
+}
+
+.quote_gen{
+    margin-left: 300px;
+}
+
+.number_generated,.quote_gen{
+    border: none;
+    outline: none;
+    padding: 12px;
+    width: 150px;
+    transition: 0.3s;
+    border-radius: 7px;
+}
+
+.number{
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.new_quote_gen{
+    transform: scaleY(1);
+}
+
+.type_quote{
+    position: relative;
+    width: 200px;
+}
+
+.quote_type{
+    padding: 9px 12px;
+}
+
+.quote_type,.type{
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+    transition: 0.3s;
+}
+
+.btn{
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.new_type_quote{
+    transform: scaleY(1);
+}
+
+
+select.number{
+    width: 178px !important;
+    direction: rtl !important;
+    margin-left: 300px !important;
+    text-align: left;
+    background: #333;
+    border-radius: 7px;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 7px 12px;
+}
+
+select.btn{
+    display: block;
+    border: none;
+    outline: none;
+    padding: 7px 12px;
+    width: 178px !important;
+    direction: ltr !important;
+    background: #333;
+    border-radius: 7px;
+    color: #fff;
+}
+
+.display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

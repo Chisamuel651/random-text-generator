@@ -18,7 +18,10 @@
         </div>
 
         <div class="quote-body">
-            <div class="icon-quote" id="quote_drawer">
+            <div class="display">
+                <span class="icon-quote" id="quote_drawer">
+                </span>
+                <span class="icon-quote" id="quote_drawer2"></span>
             </div>
             <div class="quote-btn">
                 <div class="social">
@@ -26,16 +29,25 @@
                         <i class="fab fa-twitter-square"></i>
                     </a>
                 </div>
-                <div class="btn">
-                    <button id="quote-button">Motivation</button>
-                </div>
             </div>
-            <div class="number">
-                <button class="quote_gen">1</button>
-                <button class="quote_gen">2</button>
-                <button class="quote_gen">3</button>
-                <button class="quote_gen">4</button>
-                <button class="quote_gen">5</button>
+
+            <div class="type_quote">
+                <button class="quote_type">Which Quote</button>
+                <select class="btn" id="type">
+                    <option id="quote-button" class="type">Motivation</option>
+                    <option id="quote-botton2" class="type">Romance</option>
+                </select>
+            </div>
+
+            <div class="quote_number">
+                <button class="number_generated">Select Number</button>
+                <select class="number" id="number">
+                    <option class="quote_gen">1</option>
+                    <option class="quote_gen">2</option>
+                    <option class="quote_gen">3</option>
+                    <option class="quote_gen">4</option>
+                    <option class="quote_gen">5</option>
+                </select>
             </div>
         </div>
 
@@ -44,9 +56,7 @@
         </div>
     </div>
     
-
-    <!-- <script src="app.js"></script> -->
     <script src="app1.js"></script>
-    <!-- <script src="app2.js"></script> -->
+    <script src="app2.js"></script>
 </body>
 </html>
