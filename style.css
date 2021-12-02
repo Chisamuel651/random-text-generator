@@ -201,8 +201,11 @@ body{
 
 @media(max-width: 367px){
     .quote-wrapper .quote-body{
-        width: 90%;
+        width: 70%;
         margin-left: 20px;
+    }
+    .display .icon-quote{
+        font-size: 7px;
     }
 }
 
