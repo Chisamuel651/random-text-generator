@@ -7,6 +7,7 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style2.css"> -->
     <!-- font awesome css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
@@ -21,7 +22,6 @@
             <div class="display">
                 <span class="icon-quote" id="quote_drawer">
                 </span>
-                <span class="icon-quote" id="quote_drawer2"></span>
             </div>
             <div class="quote-btn">
                 <div class="social">
@@ -32,15 +32,12 @@
             </div>
 
             <div class="type_quote">
-                <button class="quote_type">Which Quote</button>
+                <button class="quote_type" id="quote_type">Quote</button>
                 <select class="btn" id="type">
                     <option id="quote-button" class="type">Motivation</option>
                     <option id="quote-botton2" class="type">Romance</option>
                 </select>
-            </div>
-
-            <div class="quote_number">
-                <button class="number_generated">Select Number</button>
+                <button class="number_generated">Number</button>
                 <select class="number" id="number">
                     <option class="quote_gen">1</option>
                     <option class="quote_gen">2</option>
@@ -48,7 +45,10 @@
                     <option class="quote_gen">4</option>
                     <option class="quote_gen">5</option>
                 </select>
+                <button class="number_io" id="number_io">Generate</button>
             </div>
+            <!-- <div class="generate_button">
+            </div> -->
         </div>
 
         <div class="footer">
@@ -56,7 +56,7 @@
         </div>
     </div>
     
+    <script src="quotes.js"></script>
     <script src="app1.js"></script>
-    <script src="app2.js"></script>
 </body>
 </html>

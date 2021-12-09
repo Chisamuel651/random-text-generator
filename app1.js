@@ -1,45 +1,27 @@
-const inspirationQuotes = {
-    beginningSentence: [
-        "If you look at what you have in life, you'll always have more.",
-        "Your time is limited, so don't waste it living someone else's life.",
-        "Life is what happens",
-        "If you set your goals ridiculously high and it's a failure,",
-        "The best and most beautiful things in the world",
-        "The greatest glory in living",
-        "Many of life's failures are people",
-        "You have brains in your head.",
-        "May you live",
-        "Love the life"
-    ],
-    middleSentence: [
-        "If you look at what you don't have in life,",
-        "Don't be trapped by dogma –",
-        "when you're busy",
-        "you will fail above",
-        "cannot be seen or even touched —",
-        "lies not in never falling,",
-        "who did not realize how close",
-        "You have feet in your shoes.",
-        "all the days",
-        "you live."
-    ],
-    endingSentence: [
-        "you'll never have enough.",
-        "which is living with the results of other people's thinking.",
-        "making other plans.",
-        "everyone else's success.",
-        "they must be felt with the heart.",
-        "but in rising every time we fall.",
-        "they were to success when they gave up.",
-        "You can steer yourself any direction you choose.",
-        "your life.",
-        "Live the life you love."
-    ]
-}
 
 let generalRandomQuote;
-
-const generate = () => {
+// console.log(romanceQuotes);
+const generate = (type = null) => {
+    console.log("the type is " + type);
+    if(type == null){
+        let value = Math.floor(Math.random() * 15);
+        value = value%2;
+        console.log(value);
+        if(value== '1'){
+            inspirationQuotes = motivationQuotes; 
+        }
+        else{
+            inspirationQuotes = romanceQuotes;
+        }
+    }
+    else{
+        if(type == 'Motivation'){
+            inspirationQuotes = motivationQuotes; 
+        }
+        else{
+            inspirationQuotes = romanceQuotes;
+        }
+    }
     const randomQuotes1 = inspirationQuotes.beginningSentence[Math.floor(Math.random() * inspirationQuotes.beginningSentence.length)];
     const randomQuotes2 = inspirationQuotes.middleSentence[Math.floor(Math.random() * inspirationQuotes.middleSentence.length)];
     const randomQuotes3 = inspirationQuotes.endingSentence[Math.floor(Math.random() * inspirationQuotes.endingSentence.length)];
@@ -50,58 +32,58 @@ const generate = () => {
 
 generate();
 
-let quoteBtn = document.getElementById('quote-button');
+let quoteBtn = document.getElementById('type');
 // let quote1 = document.querySelector('.quote');
 let quoteDrawer = document.getElementById('quote_drawer');
-let quoteDrawer2 = document.getElementById('quote_drawer2');
+// let quoteDrawer2 = document.getElementById('quote_drawer');
 let clickNum = document.querySelector('.number_generated');
-let genNum = document.querySelector('.number');
+let genNum = document.getElementById('number');
 let clickQuote = document.querySelector('.quote_type');
 let whichQuote = document.querySelector('.btn');
+let generateBtn = document.getElementById('number_io');
 
 
 let quoteGen = document.getElementsByClassName('quote_gen');
-
+var quote_type = '';
 quoteBtn.addEventListener('click', () => {
     let select_quote = document.getElementById('type');
-    let quote_type = select_quote.options[select_quote.selectedIndex].value;
+    quote_type = select_quote.options[select_quote.selectedIndex].value;
     if (quote_type == 'Motivation') {
         console.log('Qoute type is ' + quote_type);
         // quoteDrawer.innerHTML = generate();
     }
+    else{
+        console.log('Qoute type is ' + quote_type);
+    }
     clearInterval(myTime);
 })
 
-for (let k = 0; k < quoteGen.length; k++) {
+var quote_number = 0;
+genNum.addEventListener('click', () => {
+    let select_number = document.getElementById('number');
+    // let quote_type = select_quote.options[select_quote.selectedIndex].value;
+    quote_number = select_number.options[select_number.selectedIndex].value;
+    console.log(quote_number);
+    clearInterval(myTime);
+})
 
-    quoteGen[k].addEventListener('click', () => {
-        let select_quote = document.getElementById('type');
-        let quote_type = select_quote.options[select_quote.selectedIndex].value;
-        var htmlData = '';
-        let num = k + 1;
-        for (let j = 0; j < num; j++) {
-            if (num == 1 && quote_type == 'Motivation') {
-                htmlData = generate();
-            }
-            if (num > 1 && quote_type == 'Motivation') {
-                htmlData += generate() + '<br><br>';
-            }
-            // 
-            // console.log(htmlData);
+
+    generateBtn.addEventListener('click', () =>{
+        let htmlData = '';
+        for(let i = 0; i < quote_number; i++){
+            htmlData += generate(quote_type) + '<br><br>';
         }
-        quoteDrawer2.innerHTML = htmlData;
-        htmlData = '';
-
-        if (num >= 1) {
+        quoteDrawer.innerHTML = htmlData;
+        if (quote_number >= 1) {
             clearInterval(myTime);
         }
     })
-}
+
 
 
 var myTime = window.setInterval('refresh()', 10000);
 function refresh() {
-    quoteDrawer2.innerHTML = generate();
+    quoteDrawer.innerHTML = generate();
 }
 
 clickNum.addEventListener('click', () => {
