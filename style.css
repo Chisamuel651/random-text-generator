@@ -16,24 +16,95 @@ body{
     align-items: center;
     width: 100%;
 }
+body.active{
+    background-color: #fff;
+}
+.box{
+    margin-top: -600px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    background-color: #fff;
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 4px #cbced1,
+    -2px -2px 4px #ffffff,
+    inset 5px 5px 5px #cbced1,
+    inset -5px -5px 5px #ffffff;
+    -webkit-appearance: none;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+input::before{
+    content: '';
+    position: absolute;
+    width: 2rem;
+    background-color: #000;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px  rgba(0, 0, 0, 0.1),
+    -2px -2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+input:checked:before{
+    transform: translateX(2rem);
+}
+
+input::after{
+    content: '';
+    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px  rgba(0, 0, 0, 0.1),
+    -2px -2px 4px rgba(0, 0, 0, 0.1);
+    top: 0;
+    bottom: 0;
+    left: 0.6rem;
+    margin: auto;
+    transition: 0.9s;
+}
+
+input:checked:after{
+    left: 2.8rem;
+    width: 0.5rem;
+    height: 1rem;
+    border-radius: 3rem;
+}
 
 .quote-wrapper{
     width: 650px;
     height: 570px;
-    /* margin: 0 30px; */
-    margin-bottom: 175px;
+    margin-bottom: 90px;
     padding: 75px;
+}
+
+.quote-wrapper input{
+    margin-left: 200px;
+    margin-bottom: 12px;
 }
 
 .quote-wrapper .quote-heading{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .quote-wrapper .quote-heading h2{
     font-weight: 400;
     font-family: 'Ubuntu', sans-serif;
     color: #fff;
+}
+.quote-wrapper .quote-heading h2.active{
+    color: #333;
 }
 
 .quote-wrapper .quote-body{
@@ -43,12 +114,17 @@ body{
     border-radius: 5px;
     padding: 50px 35px;
 }
+.quote-wrapper .quote-body.active{
+    background: #333;
+}
 
 .quote-wrapper .quote-body .icon-quote{
-    /* text-align: center; */
     font-size: 18px;
     color: #333;
-    height: 150px;
+    height: 160px;
+}
+.quote-wrapper .quote-body .icon-quote.active{
+    color: #fff;
 }
 
 
@@ -65,6 +141,9 @@ body{
     border-top: 1px solid #333;
     padding: 5px 0;
 }
+.quote-wrapper .quote-body .quote-btn.active{
+    border-top: 1px solid #fff;
+}
 
 .quote-wrapper .quote-body .social a{
     font-size: 30px;
@@ -74,12 +153,15 @@ body{
     color: #333;
     transition: 0.3 ease;
 }
+.quote-wrapper .quote-body .social a.active{
+    color: #fff;
+}
 
 .quote-wrapper .quote-body .social a:hover{
     color: #00acee;
 }
 
-.quote-wrapper .quote-body .btn button{
+/* .quote-wrapper .quote-body .btn button{
     border: none;
     outline: none;
     padding: 10px 15px;
@@ -89,7 +171,7 @@ body{
     font-size: 16px;
     border-radius: 7px;
     justify-content: right;
-}
+} */
 
 .quote-wrapper .quote-body .btn button:active{
     background: #00acee;
@@ -102,6 +184,9 @@ body{
 
 .quote-wrapper .footer p{
     color: #fff;
+}
+.quote-wrapper .footer p.active{
+    color: #333;
 }
 
 .quote-wrapper .footer p a{
@@ -180,16 +265,6 @@ body{
     }
     .type_quote button:last-child{
         left: -80px;
-    }
-    .type_quote button:last-child{
-        margin-left: -90px;
-        border: none;
-        background-color: #333;
-        color: #fff;
-        border-radius: 7px;
-        padding: 4px 12px;
-        cursor: pointer;
-        /* width: 100%; */
     }
 }
 
@@ -282,24 +357,37 @@ body{
 
 .type_quote{
     position: relative;
-    width: 100px;
+    width:  100px;
     display: flex;
     justify-content: space-between;
 }
-.type_quote button:last-child{
+
+.type_quote .number_generated{
     margin-left: 100px;
+    cursor: pointer;
+    padding: 9px 12px;
+}
+
+.generate_delete{
+    margin-top: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+.generate_delete .number_io{
     border: none;
     background-color: #333;
     color: #fff;
     border-radius: 7px;
-    padding: 4px 12px;
-    cursor: pointer;
-    /* width: 100%; */
-}
-.type_quote .number_generated{
-    margin-left: 120px;
+    padding: 9px 12px;
     cursor: pointer;
 }
+.generate_delete .number_io.active{
+    color: #333;
+    background-color: #fff;
+}
+
+
 .quote_type{
     padding: 12px 5px;
     border-radius: 7px;
@@ -327,11 +415,21 @@ body{
     transform: scaleY(1);
 }
 
+.generate_delete .delete_content{
+    margin-left: 5px;
+    border: none;
+    padding: 9px 12px;
+    background-color: #d62828;
+    color: #fff;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
 
 select.number{
-    width: 178px !important;
+    width: 80px !important;
     direction: rtl !important;
-    margin-left: 180px !important;
+    margin-left: 160px !important;
     text-align: left;
     background: #333;
     border-radius: 7px;
@@ -342,13 +440,17 @@ select.number{
     margin-top: 40px;
     cursor: pointer;
 }
+select.number.active{
+    background: #fff;
+    color: #333;
+}
 
 select.btn{
     display: block;
     border: none;
     outline: none;
     padding: 7px 12px;
-    width: 178px !important;
+    width: 120px !important;
     direction: ltr !important;
     background: #333;
     border-radius: 7px;
@@ -356,12 +458,33 @@ select.btn{
     margin-top: 40px;
     cursor: pointer;
 }
+select.btn.active{
+    background: #fff;
+    color: #333;
+}
 
 .display{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     overflow-y: scroll;
-
 }
+
+@media screen and(max-width: 500px){
+    .type_quote .number_generated{
+        margin-left: -60px;
+        cursor: pointer;
+        padding: 9px 12px;
+    }
+    select.number{
+        margin-right: -250px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .quote-heading h2{
+        font-size: 1000px;
+    }
+}
+
+
 

@@ -41,6 +41,7 @@ let genNum = document.getElementById('number');
 let clickQuote = document.querySelector('.quote_type');
 let whichQuote = document.querySelector('.btn');
 let generateBtn = document.getElementById('number_io');
+var deleteBtn = document.getElementById('delete_content');
 
 
 let quoteGen = document.getElementsByClassName('quote_gen');
@@ -55,7 +56,7 @@ quoteBtn.addEventListener('click', () => {
     else{
         console.log('Qoute type is ' + quote_type);
     }
-    clearInterval(myTime);
+    // clearInterval(myTime);
 })
 
 var quote_number = 0;
@@ -64,27 +65,34 @@ genNum.addEventListener('click', () => {
     // let quote_type = select_quote.options[select_quote.selectedIndex].value;
     quote_number = select_number.options[select_number.selectedIndex].value;
     console.log(quote_number);
-    clearInterval(myTime);
+    // clearInterval(myTime);
 })
 
-
+    var htmlData = '';
     generateBtn.addEventListener('click', () =>{
         let htmlData = '';
         for(let i = 0; i < quote_number; i++){
             htmlData += generate(quote_type) + '<br><br>';
         }
         quoteDrawer.innerHTML = htmlData;
-        if (quote_number >= 1) {
-            clearInterval(myTime);
-        }
+        // if (quote_number >= 1) {
+        //     clearInterval(myTime);
+        // }
     })
 
 
 
-var myTime = window.setInterval('refresh()', 10000);
-function refresh() {
-    quoteDrawer.innerHTML = generate();
-}
+        deleteBtn.addEventListener('click', ()=>{
+        quoteDrawer.innerHTML = '';
+        console.log("deletion succesful");
+    })
+
+
+
+// var myTime = window.setInterval('refresh()', 10000);
+// function refresh() {
+//     quoteDrawer.innerHTML = generate();
+// }
 
 clickNum.addEventListener('click', () => {
     genNum.classList.toggle('new_quote_gen');
@@ -92,3 +100,23 @@ clickNum.addEventListener('click', () => {
 clickQuote.addEventListener('click', () => {
     whichQuote.classList.toggle('new_type_quote');
 });
+
+const body = document.querySelector('body');
+const toggleBtn = document.getElementById('mode_btn'),
+headingMode = document.getElementById('heading'),
+qBody = document.getElementById('quote_body'),
+qBtn = document.getElementById('quote-btn'),
+link = document.getElementById('link'),
+designer = document.getElementById('designer');
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('active');
+    headingMode.classList.toggle('active');
+    qBody.classList.toggle('active');
+    quoteDrawer.classList.toggle('active');
+    qBtn.classList.toggle('active');
+    link.classList.toggle('active');
+    designer.classList.toggle('active');
+    generateBtn.classList.toggle('active');
+    genNum.classList.toggle('active');
+    quoteBtn.classList.toggle('active');
+})
